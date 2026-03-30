@@ -1,4 +1,5 @@
 import React from 'react';
+console.log('App.tsx is loaded');
 import { HashRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Twitter, MapPin, ChevronRight } from 'lucide-react';
@@ -324,17 +325,20 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
 export default function App() {
   console.log('App is rendering');
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/working-papers" element={<WorkingPapers />} />
-          <Route path="/talks" element={<Talks />} />
-          <Route path="/teaching" element={<Teaching />} />
-          <Route path="/cv" element={<CV />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <div style={{ padding: '20px', border: '1px solid red' }}>
+      <h1>Debug: App is rendering</h1>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/working-papers" element={<WorkingPapers />} />
+            <Route path="/talks" element={<Talks />} />
+            <Route path="/teaching" element={<Teaching />} />
+            <Route path="/cv" element={<CV />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </div>
   );
 }
