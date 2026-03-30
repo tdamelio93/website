@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Twitter, MapPin, ChevronRight } from 'lucide-react';
 
@@ -322,6 +322,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function App() {
+  console.log('App is rendering');
   return (
     <Router>
       <Layout>
