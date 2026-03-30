@@ -324,7 +324,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
 
 export default function App() {
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
