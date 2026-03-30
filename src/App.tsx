@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Twitter, MapPin, ChevronRight } from 'lucide-react';
 
@@ -331,6 +331,7 @@ export default function App() {
           <Route path="/talks" element={<Talks />} />
           <Route path="/teaching" element={<Teaching />} />
           <Route path="/cv" element={<CV />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>
     </Router>
