@@ -72,9 +72,6 @@ const Home = () => (
     exit={{ opacity: 0, y: -10 }}
     className="space-y-8"
   >
-    <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-      Welcome to my personal website!
-    </h1>
     <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
       <p>
         I am a PhD Candidate in Economics at <a href="https://ecares.ulb.be/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">ECARES - Université Libre de Bruxelles</a>, under the supervision of <a href="https://sites.google.com/site/gobbipaula/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Paula Gobbi</a>. I am currently visiting <a href="https://www.bu.edu/econ/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Boston University</a>, where I am working under the supervision of <a href="https://sites.google.com/site/martinfiszbein/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Martin Fiszbein</a>.
