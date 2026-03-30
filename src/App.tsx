@@ -77,7 +77,7 @@ const Home = () => (
     </h1>
     <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
       <p>
-        I am a PhD Candidate in Economics at <a href="https://ecares.ulb.be/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">ECARES - Université Libre de Bruxelles</a>, under the supervision of <a href="https://sites.google.com/site/gobbipaula/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Paula Gobbi</a>. I am currently visiting <a href="https://www.bu.edu/economics/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Boston University</a>, where I am working under the supervision of <a href="https://sites.google.com/site/martinfiszbein/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Martin Fiszbein</a>.
+        I am a PhD Candidate in Economics at <a href="https://ecares.ulb.be/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">ECARES - Université Libre de Bruxelles</a>, under the supervision of <a href="https://sites.google.com/site/gobbipaula/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Paula Gobbi</a>. I am currently visiting <a href="https://www.bu.edu/econ/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Boston University</a>, where I am working under the supervision of <a href="https://sites.google.com/site/martinfiszbein/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Martin Fiszbein</a>.
       </p>
       <p>
         My research focuses on <strong>Applied Economics</strong>, with a particular interest in <strong>Economic History</strong>. My work explores the interconnections of inheritance practices and demography, in particolar migration and fertility, with a focus on the 18<sup>th</sup> and 19<sup>th</sup> century. I am also interested in <strong>Sport Economics</strong>.
@@ -323,22 +323,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function App() {
-  console.log('App is rendering');
   return (
-    <div style={{ padding: '20px', border: '1px solid red' }}>
-      <h1>Debug: App is rendering</h1>
-      <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/working-papers" element={<WorkingPapers />} />
-            <Route path="/talks" element={<Talks />} />
-            <Route path="/teaching" element={<Teaching />} />
-            <Route path="/cv" element={<CV />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </Layout>
-      </Router>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/working-papers" element={<WorkingPapers />} />
+          <Route path="/talks" element={<Talks />} />
+          <Route path="/teaching" element={<Teaching />} />
+          <Route path="/cv" element={<CV />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
