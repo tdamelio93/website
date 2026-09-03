@@ -2,7 +2,7 @@ import React from 'react';
 console.log('App.tsx is loaded');
 import { HashRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Twitter, MapPin, ChevronRight } from 'lucide-react';
+import { Mail, Twitter, MapPin, ChevronRight, FileText } from 'lucide-react';
 
 // --- Components ---
 
@@ -86,6 +86,59 @@ const Home = () => (
   </motion.div>
 );
 
+interface PaperItemData {
+  title: string;
+  coauthors?: React.ReactNode;
+  year?: string;
+  abstract?: string;
+  link?: string;
+}
+
+const PaperItem = ({ paper }: { paper: PaperItemData; key?: React.Key }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <li className="group">
+      <div className="flex items-start gap-2">
+        <ChevronRight size={18} className="mt-1 shrink-0 text-gray-300 group-hover:text-black transition-colors" />
+        <div className="flex-1">
+          <h3 className="text-lg font-medium text-gray-900">
+            {paper.title}{paper.coauthors ? <>, {paper.coauthors}</> : ''}
+          </h3>
+          <div className="mt-1 flex items-center gap-3 text-sm">
+            {paper.abstract && (
+              <button
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                className="cursor-pointer font-medium text-blue-700 hover:underline"
+              >
+                Abstract
+              </button>
+            )}
+            {paper.link && (
+              <a
+                href={paper.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-medium text-blue-700 hover:underline"
+                title="Working Paper"
+              >
+                <FileText size={14} className="shrink-0" />
+                <span>Working paper</span>
+              </a>
+            )}
+          </div>
+          {isOpen && paper.abstract && (
+            <p className="mt-2 pl-4 border-l-2 border-gray-100 italic text-sm text-gray-600 leading-relaxed">
+              {paper.abstract}
+            </p>
+          )}
+        </div>
+      </div>
+    </li>
+  );
+};
+
 const WorkingPapers = () => (
   <motion.div
     initial={{ opacity: 0, y: 10 }}
@@ -125,28 +178,12 @@ const WorkingPapers = () => (
               },
               {
                 title: "Illegitimacy in France at the time of the Revolution",
-                abstract: "The French Revolution implemented a series of reforms that disrupted traditional local inheritance practices by mandating equal division of assets among all offspring, including illegitimate children, an historically marginalized and disadvantaged societal group. I compare children born before and after 1793 across municipalities where the inheritance reforms had a transformative impact and those where these practices remained unaltered. My findings reveal a significant decrease in the incidence of illegitimate children in the treated areas. I also address potential concerns regarding the robustness of the results and the mechanisms involved."
+                link: "https://ideas.repec.org/p/eca/wpaper/2013-413186.html#download",
+                abstract: "The French Revolution disrupted local inheritance practices by mandating equal division of assets among all offspring, including illegitimate children—a historically marginalized group. I compare children born before and after the inclusion in 1793 of illegitimate children in the inheritance, across bailliages where the reform had a transformative impact and those where local practices remained unaltered. The analysis employs three novel datasets: one on inheritance rights for out-of-wedlock children in pre-revolutionary France, one built from genealogical sources, and one digitizing a demographic survey on illegitimacy prevalence in 18th–19th century France. My findings reveal that the reform led to a significant decline in illegitimate births by two-thirds."
               }
-            ] as { title: string; coauthors?: React.ReactNode; year?: string; abstract?: string }[]
+            ] as PaperItemData[]
           ).map((paper, i) => (
-            <li key={i} className="group">
-              <div className="flex items-start gap-2">
-                <ChevronRight size={18} className="mt-1 shrink-0 text-gray-300 group-hover:text-black transition-colors" />
-                <div>
-                  <h3 className="text-lg font-medium text-gray-900">
-                    {paper.title}{paper.coauthors ? <>, {paper.coauthors}</> : ''}
-                  </h3>
-                  <details className="mt-1 text-sm text-gray-600">
-                    <summary className="cursor-pointer font-medium text-blue-700 hover:underline inline-block">
-                      Abstract
-                    </summary>
-                    <p className="mt-2 pl-4 border-l-2 border-gray-100 italic">
-                      {paper.abstract}
-                    </p>
-                  </details>
-                </div>
-              </div>
-            </li>
+            <PaperItem key={i} paper={paper} />
           ))}
         </ul>
       </section>
