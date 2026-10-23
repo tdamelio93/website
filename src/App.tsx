@@ -8,26 +8,26 @@ import profilePhoto from './assets/profile.png';
 // --- Components ---
 
 const Sidebar = () => (
-  <div className="flex flex-col space-y-6 md:w-64 shrink-0">
-    <h2 className="text-xl font-bold tracking-tight text-gray-900">Tommaso D'Amelio</h2>
-    <div className="aspect-square overflow-hidden rounded-sm bg-gray-100 shadow-xs">
+  <div className="flex flex-col space-y-6 w-full max-w-sm md:max-w-none md:w-80 lg:w-88 shrink-0">
+    <h2 className="text-2xl font-bold tracking-tight text-gray-900">Tommaso D'Amelio</h2>
+    <div className="w-full aspect-square overflow-hidden rounded-md bg-gray-100 shadow-sm border border-gray-200/80">
       <img
         src={profilePhoto}
         alt="Tommaso D'Amelio"
-        className="h-full w-full object-cover transition-all duration-500"
+        className="h-full w-full object-cover object-center transition-all duration-300"
       />
     </div>
     <div className="space-y-3 text-sm text-gray-600">
-      <div className="flex items-center gap-2">
-        <MapPin size={16} />
+      <div className="flex items-center gap-2.5">
+        <MapPin size={17} className="shrink-0 text-gray-500" />
         <span>Brussels, Belgium</span>
       </div>
-      <a href="mailto:tommaso.damelio@ulb.be" className="flex items-center gap-2 hover:text-black transition-colors">
-        <Mail size={16} />
-        <span>tommaso.damelio@ulb.be</span>
+      <a href="mailto:tommaso.damelio@ulb.be" className="flex items-center gap-2.5 hover:text-black transition-colors">
+        <Mail size={17} className="shrink-0 text-gray-500" />
+        <span className="break-all">tommaso.damelio@ulb.be</span>
       </a>
-      <a href="https://x.com/AmelioTommaso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-black transition-colors">
-        <Twitter size={16} />
+      <a href="https://x.com/AmelioTommaso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 hover:text-black transition-colors">
+        <Twitter size={17} className="shrink-0 text-gray-500" />
         <span>Twitter</span>
       </a>
     </div>
@@ -347,7 +347,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
   <div className="min-h-screen bg-white font-sans selection:bg-gray-100">
     <Navbar />
     <main className="max-w-6xl mx-auto px-6 md:px-12 py-12 md:py-20">
-      <div className="flex flex-col md:flex-row gap-12 md:gap-20">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-14 lg:gap-16">
         <Sidebar />
         <div className="flex-1 min-w-0">
           <AnimatePresence mode="wait">
