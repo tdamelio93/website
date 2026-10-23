@@ -9,12 +9,11 @@ import { Mail, Twitter, MapPin, ChevronRight, FileText } from 'lucide-react';
 const Sidebar = () => (
   <div className="flex flex-col space-y-6 md:w-64 shrink-0">
     <h2 className="text-xl font-bold tracking-tight text-gray-900">Tommaso D'Amelio</h2>
-    <div className="aspect-[3/4] overflow-hidden rounded-sm bg-gray-100">
+    <div className="aspect-square overflow-hidden rounded-sm bg-gray-100 shadow-xs">
       <img
-        src="https://www.dropbox.com/scl/fi/gc4s4vxaecfwiouc8uq7b/fotosito.png?rlkey=g1fm7gql1pwauqll4gt9uz1zc&st=n5piabo9&dl=1"
+        src="/assets/aistudio/image_1eeffecc.png"
         alt="Tommaso D'Amelio"
         className="h-full w-full object-cover transition-all duration-500"
-        referrerPolicy="no-referrer"
       />
     </div>
     <div className="space-y-3 text-sm text-gray-600">
@@ -77,7 +76,7 @@ const Home = () => (
         I am a PhD Candidate in Economics at <a href="https://ecares.ulb.be/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">ECARES - Université Libre de Bruxelles</a>, under the supervision of <a href="https://sites.google.com/site/gobbipaula/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Paula Gobbi</a>. In spring 2026 I visited <a href="https://www.bu.edu/econ/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Boston University</a>, where I worked under the supervision of <a href="https://sites.google.com/site/martinfiszbein/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Martin Fiszbein</a>.
       </p>
       <p>
-        My research focuses on <strong>Applied Economics</strong>, with a specific interest in <strong>Economic History</strong>. My work explores the interconnections of inheritance practices and demography, in particular migration and fertility, with a focus on the 18<sup>th</sup> and 19<sup>th</sup> century. I am also interested in <strong>Sport Economics</strong>.
+        My research focuses on <strong>Applied Economics</strong>, with a specific interest in <strong>Economic History</strong>. My work explores the interconnections of inheritance practices and demography, in particular migration and fertility, with a focus on the 18<sup>th</sup> and 19<sup>th</sup> century.
       </p>
       <p>
         I am on the 2026/27 Job Market!
