@@ -3,6 +3,7 @@ console.log('App.tsx is loaded');
 import { HashRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Twitter, MapPin, ChevronRight, FileText } from 'lucide-react';
+import profilePhoto from './assets/profile.png';
 
 // --- Components ---
 
@@ -11,7 +12,7 @@ const Sidebar = () => (
     <h2 className="text-xl font-bold tracking-tight text-gray-900">Tommaso D'Amelio</h2>
     <div className="aspect-square overflow-hidden rounded-sm bg-gray-100 shadow-xs">
       <img
-        src="/assets/aistudio/image_1eeffecc.png"
+        src={profilePhoto}
         alt="Tommaso D'Amelio"
         className="h-full w-full object-cover transition-all duration-500"
       />
