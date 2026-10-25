@@ -3,46 +3,54 @@ console.log('App.tsx is loaded');
 import { HashRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Twitter, MapPin, ChevronRight, FileText } from 'lucide-react';
-import profilePhoto from './assets/profile.png';
+import portraitPhoto from './assets/portrait.jpeg';
 
 // --- Components ---
 
-const Sidebar = () => (
-  <div className="flex flex-col space-y-6 w-full max-w-sm md:max-w-none md:w-80 lg:w-88 shrink-0">
-    <h2 className="text-2xl font-bold tracking-tight text-gray-900">Tommaso D'Amelio</h2>
-    <div className="w-full aspect-square overflow-hidden rounded-md bg-gray-100 shadow-sm border border-gray-200/80">
-      <img
-        src={profilePhoto}
-        alt="Tommaso D'Amelio"
-        className="h-full w-full object-cover object-center transition-all duration-300"
-      />
-    </div>
-    <div className="space-y-3 text-sm text-gray-600">
-      <div className="flex items-center gap-2.5">
-        <MapPin size={17} className="shrink-0 text-gray-500" />
-        <span>Brussels, Belgium</span>
+const Sidebar = () => {
+  return (
+    <div className="flex flex-col space-y-6 w-full max-w-sm md:max-w-none md:w-80 lg:w-88 shrink-0">
+      <h2 className="text-2xl font-bold tracking-tight text-gray-900">Tommaso D'Amelio</h2>
+      <div className="w-full aspect-square overflow-hidden rounded-md bg-gray-100 shadow-sm border border-gray-200/80">
+        <img
+          src={portraitPhoto}
+          alt="Tommaso D'Amelio"
+          className="h-full w-full object-cover object-top"
+        />
       </div>
-      <a href="mailto:tommaso.damelio@ulb.be" className="flex items-center gap-2.5 hover:text-black transition-colors">
-        <Mail size={17} className="shrink-0 text-gray-500" />
-        <span className="break-all">tommaso.damelio@ulb.be</span>
-      </a>
-      <a href="https://x.com/AmelioTommaso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 hover:text-black transition-colors">
-        <Twitter size={17} className="shrink-0 text-gray-500" />
-        <span>Twitter</span>
-      </a>
+      <div className="space-y-3 text-sm text-gray-600">
+        <div className="flex items-center gap-2.5">
+          <MapPin size={17} className="shrink-0 text-gray-500" />
+          <span>Brussels, Belgium</span>
+        </div>
+        <a href="mailto:tommaso.damelio@ulb.be" className="flex items-center gap-2.5 hover:text-black transition-colors">
+          <Mail size={17} className="shrink-0 text-gray-500" />
+          <span className="break-all">tommaso.damelio@ulb.be</span>
+        </a>
+        <a href="https://x.com/AmelioTommaso" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 hover:text-black transition-colors">
+          <Twitter size={17} className="shrink-0 text-gray-500" />
+          <span>Twitter</span>
+        </a>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Navbar = () => {
   const location = useLocation();
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Research', path: '/working-papers' },
-    { name: 'Talks', path: '/talks' },
+    { name: 'Presentations', path: '/presentations' },
     { name: 'Teaching', path: '/teaching' },
     { name: 'CV', path: '/cv' },
   ];
+
+  const isActive = (path: string) => {
+    if (location.pathname === path) return true;
+    if (path === '/presentations' && location.pathname === '/talks') return true;
+    return false;
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-black text-white py-4 px-6 md:px-12">
@@ -52,7 +60,7 @@ const Navbar = () => {
             key={item.path}
             to={item.path}
             className={`text-sm font-medium transition-opacity hover:opacity-100 ${
-              location.pathname === item.path ? 'opacity-100' : 'opacity-60'
+              isActive(item.path) ? 'opacity-100' : 'opacity-60'
             } ${item.name === 'Home' ? 'text-lg mr-4' : ''}`}
           >
             {item.name}
@@ -199,6 +207,7 @@ const Talks = () => (
     className="space-y-8"
   >
     <h1 className="text-3xl font-bold tracking-tight text-gray-900">Presentations</h1>
+
     <div className="space-y-12">
       <section>
         <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">2026</h2>
@@ -366,7 +375,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/working-papers" element={<WorkingPapers />} />
-          <Route path="/talks" element={<Talks />} />
+          <Route path="/presentations" element={<Talks />} />
+          <Route path="/talks" element={<Navigate to="/presentations" replace />} />
           <Route path="/teaching" element={<Teaching />} />
           <Route path="/cv" element={<CV />} />
           <Route path="*" element={<Navigate to="/" replace />} />
