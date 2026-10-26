@@ -85,7 +85,7 @@ const Home = () => (
         I am a PhD Candidate in Economics at <a href="https://ecares.ulb.be/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">ECARES - Université Libre de Bruxelles</a>, under the supervision of <a href="https://sites.google.com/site/gobbipaula/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Paula Gobbi</a>. In spring 2026 I visited <a href="https://www.bu.edu/econ/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Boston University</a>, where I worked under the supervision of <a href="https://sites.google.com/site/martinfiszbein/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-300 hover:decoration-black transition-colors">Martin Fiszbein</a>.
       </p>
       <p>
-        My research focuses on <strong>Applied Economics</strong>, with a specific interest in <strong>Economic History</strong>. My work explores the interconnections of inheritance practices and demography, in particular migration and fertility, with a focus on the 18<sup>th</sup> and 19<sup>th</sup> century.
+        My research focuses on <strong>Applied Economics</strong>, with a specific interest in <strong>Economic History</strong>. My work explores the interconnections of inheritance practices and demography, in particular migration and fertility, with a focus on the 18<sup>th</sup> and 19<sup>th</sup> century. In my <Link to="/working-papers" className="underline decoration-gray-300 hover:decoration-black transition-colors font-medium">Job Market Paper</Link>, I show how migrants slowed down the American fertility decline.
       </p>
       <p>
         I am on the 2026/27 Job Market!
@@ -96,6 +96,7 @@ const Home = () => (
 
 interface PaperItemData {
   title: string;
+  isJmp?: boolean;
   coauthors?: React.ReactNode;
   year?: string;
   abstract?: string;
@@ -111,6 +112,9 @@ const PaperItem = ({ paper }: { paper: PaperItemData; key?: React.Key }) => {
         <ChevronRight size={18} className="mt-1 shrink-0 text-gray-300 group-hover:text-black transition-colors" />
         <div className="flex-1">
           <h3 className="text-lg font-medium text-gray-900">
+            {paper.isJmp && (
+              <span className="text-blue-600 font-bold mr-2 tracking-wide">[JMP]</span>
+            )}
             {paper.title}{paper.coauthors ? <>, {paper.coauthors}</> : ''}
           </h3>
           <div className="mt-1 flex items-center gap-3 text-sm">
@@ -163,7 +167,7 @@ const WorkingPapers = () => (
             [
               {
                 title: "Slowing Down the Transition: Migration and the American Fertility Decline",
-                coauthors: "Job market paper",
+                isJmp: true,
                 abstract: "This paper investigates the role of European migration in shaping the American fertility transition during the 19th and early 20th centuries. Exploiting the French Revolution and Napoleonic invasions as a natural experiment that imposed partible inheritance across Europe, I estimate the causal effect of migration flows on native fertility patterns. Using genealogical data from Geni.com combined with historical inheritance practices across European regions, I find that migrants from formerly impartible inheritance areas increased native fertility, effectively slowing the demographic transition. The effect is concentrated in counties with higher rates of mixed marriages and more binding land constraints, suggesting cultural transmission as the primary mechanism. A shift-share instrumental variable approach confirms these findings. These results provide new evidence that migration can influence fundamental demographic behaviors through cultural channels."
               },
               {
