@@ -344,7 +344,7 @@ const CV = () => (
         You can view or download my full Curriculum Vitae by clicking the button below.
       </p>
       <a
-        href="https://www.dropbox.com/scl/fi/cnprptqnsx72kbbjvn4vu/cv.pdf?rlkey=nczm9uj3f6jtkofkbht9awajo&st=nuuc6fom&dl=0"
+        href="https://www.dropbox.com/scl/fi/0xk25h0x56ixr4iu1nkxp/cv_damelio.pdf?rlkey=fmpipxrbnvyvfb5keq13c20qc&st=8gxpul67&dl=0"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition-colors"
