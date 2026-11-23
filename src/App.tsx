@@ -166,7 +166,7 @@ const WorkingPapers = () => (
           {(
             [
               {
-                title: "Slowing Down the Transition: Migration and the American Fertility Decline",
+                title: "Migration and the Demographic Transition: Evidence from the Nineteenth-Century United States",
                 isJmp: true,
                 abstract: "This paper investigates the role of European migration in shaping the American fertility transition during the nineteenth century. Exploiting institutional changes in Europe, I estimate the causal effect of the arrival of migrants from high-fertility regions on the fertility of native-born Americans. Using genealogical data from Geni.com combined with historical inheritance practices across European regions, I find that counties exposed to migrants from primogeniture areas experienced a marked increase in natives’ fertility, effectively slowing the demographic transition. Exposure to migrants from regions that were already under equal division before the reform, who were not selected on high fertility, has no effect, which speaks against explanations based on local economic conditions. Additional evidence shows that the effect is concentrated in areas with thinner labour markets and low contact between migrants and natives. Taken together, the evidence points to a nativist reaction rather than to the adoption of migrants’ norms or improvements in the marriage market."
               },
